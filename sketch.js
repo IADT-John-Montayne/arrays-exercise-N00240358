@@ -40,6 +40,46 @@ let greenFruits = fruits.slice(0, 2) //Creates a new array with the first two el
 fruits.splice(1, 1); //At index 1, removes pear
 fruits.splice(1, 0, "kiwi", "mango"); //At index 1 there is nothing, if there was anything it will remove them and then add kiwi and mango
 
+console.log("--------------------------------------------------------------------");
+
+//Exercise: Fruit Basket Manager
+
+let basket = ["apple", "banana", "orange", "pear"];
+
+//Read From Array
+console.log(`First Fruit: ${basket[0]}`);
+let basket_length = basket.length;
+console.log(`Last Fruit: ${basket[basket_length - 1]}`);
+
+//Modify the basket
+let banana_index = basket.indexOf("banana");
+console.log(`Banana Index: ${banana_index}; Value: ${basket[banana_index]}`);
+basket[banana_index] = "kiwi";
+console.log(`New Kiwi Index: ${banana_index}; Value: ${basket[banana_index]}`);
+console.log(`Basket Contents: ${basket}`);
+basket.pop();
+console.log(`After removing last fruit: ${basket}`);
+basket.unshift("mango");
+console.log(`After adding Mango to the start: ${basket}`);
+for (let i = 0; i < basket.length; i++) {
+	console.log(`Fruit ${i + 1}: ${basket[i]}`);
+}
+
+//Search for a fruit
+let orange_index = basket.indexOf("orange");
+if (orange_index !== -1) {
+	console.log(`Found Orange at index ${orange_index}`);
+}
+else{
+	console.log(`There is no Orange in the basket.`);
+}
+
+//Copy part of the basket
+let basket_middle = Math.floor(basket.length / 2);
+let citrus =  basket.slice(basket_middle - 1, basket_middle + 1);
+console.log(`Citrus Fruits: ${citrus}`);
+console.log(`Original Basket: ${basket}`);
+
 function setup() {
 	createCanvas(500, 500);
 	background(55);
